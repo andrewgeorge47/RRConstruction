@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RR Construction - Past Projects</title>
+    <style>
+        :root {
+            --primary: #ffb72b;
+            --secondary: #222222;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links .btn:hover {
+            background-color: #e69500;
+            color: white;
+        }
+        /* Mobile Navigation */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--secondary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 30px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        /* Projects Grid */
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        
+        .filter-btn {
+            background: none;
+            border: 1px solid var(--gray);
+            color: var(--gray);
+            padding: 8px 20px;
+            margin: 0 5px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .project-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .project-category {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: var(--secondary);
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+        }
+        
+        .project-details {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .project-location {
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .project-location span {
+            margin-left: 5px;
+        }
+        
+        .project-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .meta-label {
+            font-size: 12px;
+            color: var(--gray);
+        }
+        
+        .meta-value {
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e69500;
+        }
+        
+        /* Project Gallery */
+        .project-gallery {
+            margin-top: 80px;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 200px);
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+            border-radius: 5px;
+        }
+        
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-icon {
+            color: white;
+            font-size: 24px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 60px 0 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .footer-desc {
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-heading {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact-icon {
+            margin-right: 15px;
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+        /* Contact Section */
+        .contact {
+            background-color: var(--light);
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+        
+        .contact-details p, .contact-details a {
+            color: var(--gray);
+            text-decoration: none;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        button.btn-primary {
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 200px);
+            }
+            
+            .gallery-item:nth-child(1) {
+                grid-column: span 1;
+            }
+            
+            .page-banner h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="images/RR Construction Logo.png" alt="RR Construction Logo">
+                </div>
+                <button class="mobile-toggle">☰</button>
+                <ul class="nav-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="index.html#footer">Contact</a></li>
+                    <li><a href="index.html#contact" class="btn">Get Quote</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+        <section class="section project-gallery" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h3>Project Gallery</h3>
+                <p class="project-description">Explore our portfolio of completed projects showcasing our quality workmanship and attention to detail across Michigan's Upper Peninsula.</p>
+            </div>
+        <div class="container">
+            <!-- Project Filters -->
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="roofing">Roofing</button>
+                <button class="filter-btn" data-filter="metal-roofing">Metal Roofing</button>
+                <button class="filter-btn" data-filter="siding">Siding</button>
+                <button class="filter-btn" data-filter="interiors">Interiors</button>
+                <button class="filter-btn" data-filter="new-construction">New Construction</button>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="new-construction">
+                    <div class="project-image" style="background-image: url('images/Hero.jpg');">
+                        <div class="project-category">New Construction</div>
+                    </div>
+                    <div class="project-details">
+                        <h4 class="project-title">Lakefront Cabin Construction</h4>
+                        <div class="project-location">
+                            📍 <span>Newberry, MI</span>
+                        </div>
+                        <p class="project-description">Complete construction of a 1,800 sq. ft. custom cabin with pine interiors, vaulted ceilings, and a wraparound deck overlooking the lake.</p>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Duration</span>
+                                <span class="meta-value">4 Months</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Completed</span>
+                                <span class="meta-value">2023</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Size</span>
+                                <span class="meta-value">1,800 sq ft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card" data-category="roofing">
+                    <div class="project-image" style="background-image: url('images/shingles.jpg');">
+                        <div class="project-category">Roofing</div>
+                    </div>
+                    <div class="project-details">
+                        <h4 class="project-title">Historic Home Roof Replacement</h4>
+                        <div class="project-location">
+                            📍 <span>Curtis, MI</span>
+                        </div>
+                        <p class="project-description">Complete roof replacement on a historic 100-year-old home using premium architectural shingles with enhanced wind resistance for UP weather conditions.</p>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Duration</span>
+                                <span class="meta-value">1 Week</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Completed</span>
+                                <span class="meta-value">2024</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Size</span>
+                                <span class="meta-value">2,400 sq ft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card" data-category="metal-roofing">
+                    <div class="project-image" style="background-image: url('images/Metal_Roof.jpg');">
+                        <div class="project-category">Metal Roofing</div>
+                    </div>
+                    <div class="project-details">
+                        <h4 class="project-title">Lake House Metal Roof Installation</h4>
+                        <div class="project-location">
+                            📍 <span>Manistique, MI</span>
+                        </div>
+                        <p class="project-description">Installation of a standing seam metal roof on a lakefront property, providing superior durability against harsh UP winter conditions and high winds.</p>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Duration</span>
+                                <span class="meta-value">4 Days</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Completed</span>
+                                <span class="meta-value">2024</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Size</span>
+                                <span class="meta-value">1,100 sq ft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card" data-category="interiors">
+                    <div class="project-image" style="background-image: url('images/cabin ceiling.jpg');">
+                        <div class="project-category">Interiors</div>
+                    </div>
+                    <div class="project-details">
+                        <h4 class="project-title">Cabin Interior Renovation</h4>
+                        <div class="project-location">
+                            📍 <span>Grand Marais, MI</span>
+                        </div>
+                        <p class="project-description">Complete interior renovation including tongue and groove pine ceiling installation, custom built-ins, and rustic hardwood flooring throughout.</p>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Duration</span>
+                                <span class="meta-value">3 Weeks</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Completed</span>
+                                <span class="meta-value">2024</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Size</span>
+                                <span class="meta-value">1,200 sq ft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card" data-category="siding">
+                    <div class="project-image" style="background-image: url('images/windows.jpg');">
+                        <div class="project-category">Siding</div>
+                    </div>
+                    <div class="project-details">
+                        <h4 class="project-title">Vacation Home Siding Replacement</h4>
+                        <div class="project-location">
+                            📍 <span>Paradise, MI</span>
+                        </div>
+                        <p class="project-description">Complete exterior renovation with LP SmartSide engineered wood siding installation in a custom Mountain Sage color with white trim accents.</p>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Duration</span>
+                                <span class="meta-value">2 Weeks</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Completed</span>
+                                <span class="meta-value">2023</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Size</span>
+                                <span class="meta-value">1,600 sq ft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- More Projects Button -->
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn-primary">View More Projects</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Project Gallery -->
+    <section class="section project-gallery" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h3>Project Gallery</h3>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="images/port1.jpg" alt="Project Image" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">+</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/port2.jpg" alt="Project Image" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">+</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/port3.jpg" alt="Project Image" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">+</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/port4.jpg" alt="Project Image" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">+</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/port5.jpg" alt="Project Image" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section" style="background-color: var(--secondary); color: white; text-align: center;">
+        <div class="container">
+            <h3 style="font-size: 36px; margin-bottom: 20px;">Ready to Start Your Project?</h3>
+            <p style="max-width: 700px; margin: 0 auto 30px;">Contact us today for a free consultation and quote on your next construction or renovation project.</p>
+            <a href="index.html#contact" class="btn-primary" style="background-color: var(--primary); color: white;">Request a Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<section id="footer" class="footer">
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <img src="images/RR_White.png" alt="RR Construction Logo">
+                    </div>
+                    <ul class="about-list">
+                        <li>Licensed and fully insured company</li>
+                        <li>Certainteed ShingleMaster certified</li>
+                        <li>Experienced in all aspects of residential construction</li>
+                        <li>Serving the central UP area</li>
+                        <li>Quality materials and professional installation</li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/profile.php?id=61565725851595" class="social-link">f</a>
+                        <a href="#" class="social-link">📷</a>
+                    </div>
+                </div>
+                <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h5>Our Location</h5>
+                        <p>Newberry, Michigan, Upper Peninsula</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-details">
+                        <h5>Email Us</h5>
+                        <a href="mailto:info@rrconstruction.com">info@rrconstruction.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-details">
+                        <h5>Call Us</h5>
+                        <a href="tel:+19062860416">(906) 286-0416</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                &copy; 2025 RR Construction. All Rights Reserved.
+            </div>
+          </div>
+    </footer>
+</section>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileToggle && navLinks) {
+                mobileToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Project filtering
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
