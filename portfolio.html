@@ -6,11 +6,12 @@
     <title>RR Construction - Past Projects</title>
     <style>
         :root {
-            --primary: #ffb72b;
-            --secondary: #222222;
+            --primary: #1C468c;
+            --secondary: #213263;
             --light: #f8f9fa;
-            --dark: #343a40;
-            --gray: #6c757d;
+            --dark: #706f6f;
+            --gray: #c4c3c4;
+            --accent: #1C468c;
         }
         
         * {
@@ -52,22 +53,31 @@
         .logo {
             display: flex;
             align-items: center;
+            text-decoration: none;
         }
         
         .logo img {
-            height: 40px;
-            margin-right: 10px;
+            height: 60px;
+            width: 60px;
+            object-fit: contain;
+            margin-right: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
         }
         
         .logo h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
             color: var(--secondary);
+            margin: 0;
         }
         
-        .logo span {
-            color: var(--primary);
-        }
         
         .nav-links {
             display: flex;
@@ -98,7 +108,7 @@
         }
         
         .nav-links .btn:hover {
-            background-color: #e69500;
+            background-color: var(--accent);
             color: white;
         }
         /* Mobile Navigation */
@@ -107,8 +117,15 @@
             background: none;
             border: none;
             color: var(--secondary);
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .mobile-toggle:hover {
+            background-color: rgba(28, 70, 140, 0.1);
         }
         
         /* Section Styles */
@@ -271,7 +288,7 @@
         }
         
         .btn-primary:hover {
-            background-color: #e69500;
+            background-color: var(--accent);
         }
         
         /* Project Gallery */
@@ -358,8 +375,11 @@
         }
         
         .footer-logo img {
-            height: 50px;
-            margin-right: 10px;
+            height: 60px;
+            width: 60px;
+            object-fit: contain;
+            margin-right: 15px;
+            border-radius: 8px;
         }
         
         .footer-desc {
@@ -540,8 +560,67 @@
         }
         
         @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 20px;
+                transition: left 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 15px 20px;
+                font-size: 18px;
+                border-radius: 8px;
+                transition: all 0.3s;
+            }
+            
+            .nav-links a:hover {
+                background-color: rgba(28, 70, 140, 0.1);
+                color: var(--primary);
+            }
+            
+            .nav-links .btn {
+                background-color: var(--primary);
+                color: white;
+                margin-top: 10px;
+                font-size: 16px;
+                padding: 12px 30px;
+            }
+            
             .projects-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .project-card {
+                margin-bottom: 20px;
+            }
+            
+            .project-details {
+                padding: 20px;
             }
             
             .gallery-container {
@@ -556,6 +635,105 @@
             .page-banner h2 {
                 font-size: 32px;
             }
+            
+            .logo img {
+                height: 50px;
+                width: 50px;
+            }
+            
+            .logo h1 {
+                font-size: 24px;
+            }
+            
+            
+            .projects-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                margin: 5px 0;
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .navbar {
+                padding: 10px 0;
+            }
+            
+            .logo img {
+                height: 45px;
+                width: 45px;
+                margin-right: 12px;
+            }
+            
+            .logo h1 {
+                font-size: 20px;
+            }
+            
+            
+            .section {
+                padding: 30px 0;
+            }
+            
+            .section-title h3 {
+                font-size: 28px;
+            }
+            
+            .projects-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                margin: 3px 0;
+                padding: 8px 16px;
+                font-size: 13px;
+                width: 200px;
+            }
+            
+            .project-details {
+                padding: 15px;
+            }
+            
+            .project-title {
+                font-size: 20px;
+            }
+            
+            .project-description {
+                font-size: 14px;
+            }
+            
+            .gallery-container {
+                grid-template-rows: repeat(6, 150px);
+                gap: 10px;
+            }
+            
+            .contact-form {
+                padding: 15px;
+            }
+            
+            .form-control {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+            
+            .footer-logo img {
+                height: 50px;
+                width: 50px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -564,9 +742,12 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <div class="logo">
-                    <img src="images/RR Construction Logo.png" alt="RR Construction Logo">
-                </div>
+                <a href="index.html#home" class="logo">
+                    <img src="images/RR-CONSTRUCTION-JPEG-File--2.0.jpg" alt="RR Construction Logo">
+                    <div class="logo-text">
+                        <h1>RR Construction</h1>
+                    </div>
+                </a>
                 <button class="mobile-toggle">☰</button>
                 <ul class="nav-links">
                     <li><a href="index.html#home">Home</a></li>
@@ -803,7 +984,7 @@
             <div class="footer-content">
                 <div>
                     <div class="footer-logo">
-                        <img src="images/RR_White.png" alt="RR Construction Logo">
+                        <img src="images/RR-CONSTRUCTION-JPEG-File--2.0.jpg" alt="RR Construction Logo">
                     </div>
                     <ul class="about-list">
                         <li>Licensed and fully insured company</li>
@@ -855,10 +1036,18 @@
         document.addEventListener('DOMContentLoaded', function() {
             const mobileToggle = document.querySelector('.mobile-toggle');
             const navLinks = document.querySelector('.nav-links');
+            const navLinksItems = document.querySelectorAll('.nav-links a');
             
             if (mobileToggle && navLinks) {
                 mobileToggle.addEventListener('click', function() {
                     navLinks.classList.toggle('active');
+                });
+                
+                // Close mobile menu when a link is clicked
+                navLinksItems.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('active');
+                    });
                 });
             }
             

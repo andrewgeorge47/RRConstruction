@@ -6,11 +6,12 @@
     <title>RR Construction - Newberry, MI</title>
     <style>
         :root {
-            --primary: #ffb72b;
-            --secondary: #222222;
+            --primary: #1C468c;
+            --secondary: #213263;
             --light: #f8f9fa;
-            --dark: #343a40;
-            --gray: #6c757d;
+            --dark: #706f6f;
+            --gray: #c4c3c4;
+            --accent: #1C468c;
         }
         
         * {
@@ -52,22 +53,31 @@
         .logo {
             display: flex;
             align-items: center;
+            text-decoration: none;
         }
         
         .logo img {
-            height: 40px;
-            margin-right: 10px;
+            height: 60px;
+            width: 60px;
+            object-fit: contain;
+            margin-right: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
         }
         
         .logo h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
             color: var(--secondary);
+            margin: 0;
         }
         
-        .logo span {
-            color: var(--primary);
-        }
         
         .nav-links {
             display: flex;
@@ -98,7 +108,7 @@
         }
         
         .nav-links .btn:hover {
-            background-color: #e69500;
+            background-color: var(--accent);
             color: white;
         }
         
@@ -139,7 +149,7 @@
         }
         
         .btn-primary:hover {
-            background-color: #e69500;
+            background-color: var(--accent);
         }
         
         /* Services Section */
@@ -501,14 +511,14 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary), #ffa000);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     margin-right: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 700;
     font-size: 22px;
-    color: var(--secondary);
+    color: white;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
     border: 3px solid rgba(255, 255, 255, 0.1);
 }
@@ -555,8 +565,11 @@
         }
         
         .footer-logo img {
-            height: 50px;
-            margin-right: 10px;
+            height: 60px;
+            width: 60px;
+            object-fit: contain;
+            margin-right: 15px;
+            border-radius: 8px;
         }
         
         .footer-desc {
@@ -646,8 +659,15 @@
             background: none;
             border: none;
             color: var(--secondary);
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .mobile-toggle:hover {
+            background-color: rgba(28, 70, 140, 0.1);
         }
         
         /* Media Queries */
@@ -666,17 +686,23 @@
                 display: block;
             }
             
+            .navbar {
+                padding: 15px 0;
+            }
+            
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 70px;
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 80px);
+                height: calc(100vh - 70px);
                 background-color: white;
                 flex-direction: column;
                 align-items: center;
-                padding-top: 30px;
-                transition: left 0.3s;
+                padding: 40px 20px;
+                transition: left 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                z-index: 999;
             }
             
             .nav-links.active {
@@ -684,11 +710,167 @@
             }
             
             .nav-links li {
-                margin: 15px 0;
+                margin: 20px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 15px 20px;
+                font-size: 18px;
+                border-radius: 8px;
+                transition: all 0.3s;
+            }
+            
+            .nav-links a:hover {
+                background-color: rgba(28, 70, 140, 0.1);
+                color: var(--primary);
+            }
+            
+            .nav-links .btn {
+                background-color: var(--primary);
+                color: white;
+                margin-top: 10px;
+                font-size: 16px;
+                padding: 12px 30px;
+            }
+            
+            .hero {
+                padding: 60px 0;
             }
             
             .hero h2 {
-                font-size: 36px;
+                font-size: 32px;
+                line-height: 1.2;
+            }
+            
+            .hero p {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+            
+            .logo img {
+                height: 50px;
+                width: 50px;
+            }
+            
+            .logo h1 {
+                font-size: 24px;
+            }
+            
+            
+            .services {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .service-card {
+                margin-bottom: 20px;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .testimonial-card {
+                padding: 25px 20px;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .contact-form {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .navbar {
+                padding: 10px 0;
+            }
+            
+            .logo img {
+                height: 45px;
+                width: 45px;
+                margin-right: 12px;
+            }
+            
+            .logo h1 {
+                font-size: 20px;
+            }
+            
+            
+            .hero {
+                padding: 40px 0;
+            }
+            
+            .hero h2 {
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+            
+            .hero p {
+                font-size: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .btn-primary {
+                padding: 10px 25px;
+                font-size: 14px;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .section-title h3 {
+                font-size: 28px;
+            }
+            
+            .service-content {
+                padding: 15px;
+            }
+            
+            .service-content h4 {
+                font-size: 20px;
+            }
+            
+            .testimonial-card {
+                padding: 20px 15px;
+            }
+            
+            .testimonial-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+            
+            .contact-form {
+                padding: 15px;
+            }
+            
+            .form-control {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+            
+            .footer-logo img {
+                height: 50px;
+                width: 50px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
             }
         }
     </style>
@@ -698,9 +880,12 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <div class="logo">
-                    <img src="images/RR Construction Logo.png" alt="RR Construction Logo">
-                </div>
+                <a href="#home" class="logo">
+                    <img src="images/RR-CONSTRUCTION-JPEG-File--2.0.jpg" alt="RR Construction Logo">
+                    <div class="logo-text">
+                        <h1>RR Construction</h1>
+                    </div>
+                </a>
                 <button class="mobile-toggle">☰</button>
                 <ul class="nav-links">
                     <li><a href="index.html#home">Home</a></li>
@@ -896,10 +1081,18 @@
         document.addEventListener('DOMContentLoaded', function() {
             const mobileToggle = document.querySelector('.mobile-toggle');
             const navLinks = document.querySelector('.nav-links');
+            const navLinksItems = document.querySelectorAll('.nav-links a');
             
             if (mobileToggle && navLinks) {
                 mobileToggle.addEventListener('click', function() {
                     navLinks.classList.toggle('active');
+                });
+                
+                // Close mobile menu when a link is clicked
+                navLinksItems.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('active');
+                    });
                 });
             }
         });
@@ -911,7 +1104,7 @@
             <div class="footer-content">
                 <div>
                     <div class="footer-logo">
-                        <img src="images/RR_White.png" alt="RR Construction Logo">
+                        <img src="images/RR-CONSTRUCTION-JPEG-File--2.0.jpg" alt="RR Construction Logo">
                     </div>
                     <ul class="about-list">
                         <li>Licensed and fully insured company</li>
