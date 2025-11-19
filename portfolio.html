@@ -24,7 +24,7 @@
         body {
             line-height: 1.6;
             color: var(--dark);
-            background-color: var(--light);
+            background-color: var(--secondary);
         }
         
         .container {
@@ -159,32 +159,6 @@
         }
         
         /* Projects Grid */
-        .projects-filter {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 8px;
-            margin-top: 8px;
-        }
-        
-        .filter-btn {
-            background: none;
-            border: 1px solid var(--gray);
-            color: var(--gray);
-            padding: 8px 20px;
-            margin: 0 5px 10px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary);
-            border-color: var(--primary);
-            color: white;
-        }
-        
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -195,13 +169,13 @@
             background-color: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
         }
         
         .project-image {
@@ -293,66 +267,7 @@
         
         /* Project Gallery */
         .project-gallery {
-            margin-top: 80px;
-        }
-        
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 200px);
-            gap: 15px;
-        }
-        
-        .gallery-item {
-            overflow: hidden;
-            position: relative;
-            border-radius: 5px;
-        }
-        
-        .gallery-item:nth-child(1) {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-        
-        .gallery-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .gallery-item:hover .gallery-image {
-            transform: scale(1.1);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-        
-        .gallery-icon {
-            color: white;
-            font-size: 24px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin-top: 0;
         }
         
         
@@ -425,6 +340,26 @@
             width: 50px;
             height: 2px;
             background-color: var(--primary);
+        }
+
+        .about-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .about-list li {
+            color: rgba(255,255,255,0.7);
+            padding: 5px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .about-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
         }
         
         .footer-links {
@@ -547,23 +482,142 @@
             width: 100%;
         }
         
-        /* Responsive */
-        @media (max-width: 992px) {
-            .gallery-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .gallery-item:nth-child(1) {
-                grid-column: span 2;
-                grid-row: span 1;
-            }
+        /* Multi-photo Card Styles */
+        .project-carousel {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
         }
-        
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .carousel-image {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .image-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .label-before {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .label-after {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .label-progress {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .label-finished {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: none;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background-color: white;
+        }
+
+        .carousel-dot:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .carousel-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+        .carousel-arrow {
+            width: 35px;
+            height: 35px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            pointer-events: auto;
+        }
+
+        .carousel-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+
         @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
             .navbar {
                 padding: 15px 0;
             }
-            
+
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -578,17 +632,17 @@
                 box-shadow: 0 4px 20px rgba(0,0,0,0.1);
                 z-index: 999;
             }
-            
+
             .nav-links.active {
                 left: 0;
             }
-            
+
             .nav-links li {
                 margin: 20px 0;
                 width: 100%;
                 text-align: center;
             }
-            
+
             .nav-links a {
                 display: block;
                 padding: 15px 20px;
@@ -596,12 +650,12 @@
                 border-radius: 8px;
                 transition: all 0.3s;
             }
-            
+
             .nav-links a:hover {
                 background-color: rgba(28, 70, 140, 0.1);
                 color: var(--primary);
             }
-            
+
             .nav-links .btn {
                 background-color: var(--primary);
                 color: white;
@@ -609,130 +663,209 @@
                 font-size: 16px;
                 padding: 12px 30px;
             }
-            
+
             .projects-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 25px;
             }
-            
+
             .project-card {
-                margin-bottom: 20px;
+                margin-bottom: 0;
             }
-            
+
+            .project-carousel {
+                height: 280px;
+            }
+
+            .carousel-arrow {
+                width: 44px;
+                height: 44px;
+                font-size: 22px;
+            }
+
+            .carousel-dot {
+                width: 12px;
+                height: 12px;
+            }
+
+            .carousel-nav {
+                gap: 10px;
+            }
+
+            .image-label {
+                padding: 6px 14px;
+                font-size: 11px;
+            }
+
+            .project-category {
+                padding: 6px 14px;
+                font-size: 12px;
+            }
+
             .project-details {
                 padding: 20px;
             }
-            
-            .gallery-container {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(6, 200px);
+
+            .project-title {
+                font-size: 20px;
             }
-            
-            .gallery-item:nth-child(1) {
-                grid-column: span 1;
+
+            .project-description {
+                font-size: 14px;
+                line-height: 1.5;
             }
-            
-            .page-banner h2 {
-                font-size: 32px;
-            }
-            
+
             .logo img {
                 height: 50px;
                 width: 50px;
             }
-            
+
             .logo h1 {
                 font-size: 24px;
             }
-            
-            
-            .projects-filter {
+
+            .section-title {
+                margin-bottom: 30px;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .footer-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .contact-info {
+                text-align: center;
+            }
+
+            .contact-item {
                 flex-direction: column;
                 align-items: center;
             }
-            
-            .filter-btn {
-                margin: 5px 0;
-                padding: 10px 20px;
-                font-size: 14px;
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
             }
         }
         
         @media (max-width: 480px) {
             .container {
-                padding: 0 10px;
+                padding: 0 15px;
             }
-            
+
             .navbar {
                 padding: 10px 0;
             }
-            
+
             .logo img {
-                height: 45px;
-                width: 45px;
-                margin-right: 12px;
+                height: 40px;
+                width: 40px;
+                margin-right: 10px;
             }
-            
+
             .logo h1 {
-                font-size: 20px;
+                font-size: 18px;
             }
-            
-            
+
             .section {
                 padding: 30px 0;
             }
-            
+
             .section-title h3 {
-                font-size: 28px;
+                font-size: 22px;
             }
-            
-            .projects-filter {
-                flex-direction: column;
-                align-items: center;
+
+            .section-title p {
+                font-size: 14px;
             }
-            
-            .filter-btn {
-                margin: 3px 0;
-                padding: 8px 16px;
-                font-size: 13px;
-                width: 200px;
+
+            .project-carousel {
+                height: 240px;
             }
-            
+
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            .image-label {
+                top: 12px;
+                left: 12px;
+                padding: 4px 10px;
+                font-size: 10px;
+            }
+
+            .project-category {
+                top: 12px;
+                right: 12px;
+                padding: 4px 10px;
+                font-size: 10px;
+            }
+
             .project-details {
                 padding: 15px;
             }
-            
+
             .project-title {
-                font-size: 20px;
+                font-size: 18px;
+                margin-bottom: 8px;
             }
-            
+
             .project-description {
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
+            .btn-primary {
+                display: block;
+                text-align: center;
+                padding: 12px 20px;
                 font-size: 14px;
             }
-            
-            .gallery-container {
-                grid-template-rows: repeat(6, 150px);
-                gap: 10px;
-            }
-            
+
             .contact-form {
                 padding: 15px;
             }
-            
+
             .form-control {
-                padding: 10px 12px;
-                font-size: 14px;
+                padding: 12px;
+                font-size: 16px;
             }
-            
+
             .footer-logo img {
                 height: 50px;
                 width: 50px;
             }
-            
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
                 text-align: center;
+            }
+
+            .about-list {
+                text-align: left;
+                max-width: 280px;
+                margin: 0 auto 20px;
+            }
+
+            .copyright {
+                font-size: 12px;
+                padding: 15px 0;
             }
         }
     </style>
@@ -761,207 +894,215 @@
     </header>
 
     <!-- Projects Section -->
-        <section class="section project-gallery" style="background-color: #f8f9fa;">
+    <section class="section project-gallery" style="background-color: var(--secondary);">
         <div class="container">
             <div class="section-title">
-                <h3>Project Gallery</h3>
-                <p class="project-description">Explore our portfolio of completed projects showcasing our quality workmanship and attention to detail across Michigan's Upper Peninsula.</p>
+                <h3 style="color: white;">Project Gallery</h3>
+                <p class="project-description" style="color: rgba(255,255,255,0.8);">Explore our portfolio of completed projects showcasing our quality workmanship and attention to detail across Michigan's Upper Peninsula.</p>
             </div>
-        <div class="container">
-            <!-- Project Filters -->
-            <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="roofing">Roofing</button>
-                <button class="filter-btn" data-filter="metal-roofing">Metal Roofing</button>
-                <button class="filter-btn" data-filter="siding">Siding</button>
-                <button class="filter-btn" data-filter="interiors">Interiors</button>
-                <button class="filter-btn" data-filter="new-construction">New Construction</button>
-            </div>
-            
+
             <!-- Projects Grid -->
             <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card" data-category="new-construction">
-                    <div class="project-image" style="background-image: url('images/Hero.jpg');">
-                        <div class="project-category">New Construction</div>
-                    </div>
-                    <div class="project-details">
-                        <h4 class="project-title">Lakefront Cabin Construction</h4>
-                        <div class="project-location">
-                            📍 <span>Newberry, MI</span>
-                        </div>
-                        <p class="project-description">Complete construction of a 1,800 sq. ft. custom cabin with pine interiors, vaulted ceilings, and a wraparound deck overlooking the lake.</p>
-                        <div class="project-meta">
-                            <div class="meta-item">
-                                <span class="meta-label">Duration</span>
-                                <span class="meta-value">4 Months</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Completed</span>
-                                <span class="meta-value">2023</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Size</span>
-                                <span class="meta-value">1,800 sq ft</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card" data-category="roofing">
-                    <div class="project-image" style="background-image: url('images/shingles.jpg');">
-                        <div class="project-category">Roofing</div>
-                    </div>
-                    <div class="project-details">
-                        <h4 class="project-title">Historic Home Roof Replacement</h4>
-                        <div class="project-location">
-                            📍 <span>Curtis, MI</span>
-                        </div>
-                        <p class="project-description">Complete roof replacement on a historic 100-year-old home using premium architectural shingles with enhanced wind resistance for UP weather conditions.</p>
-                        <div class="project-meta">
-                            <div class="meta-item">
-                                <span class="meta-label">Duration</span>
-                                <span class="meta-value">1 Week</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Completed</span>
-                                <span class="meta-value">2024</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Size</span>
-                                <span class="meta-value">2,400 sq ft</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card" data-category="metal-roofing">
-                    <div class="project-image" style="background-image: url('images/Metal_Roof.jpg');">
-                        <div class="project-category">Metal Roofing</div>
-                    </div>
-                    <div class="project-details">
-                        <h4 class="project-title">Lake House Metal Roof Installation</h4>
-                        <div class="project-location">
-                            📍 <span>Manistique, MI</span>
-                        </div>
-                        <p class="project-description">Installation of a standing seam metal roof on a lakefront property, providing superior durability against harsh UP winter conditions and high winds.</p>
-                        <div class="project-meta">
-                            <div class="meta-item">
-                                <span class="meta-label">Duration</span>
-                                <span class="meta-value">4 Days</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Completed</span>
-                                <span class="meta-value">2024</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Size</span>
-                                <span class="meta-value">1,100 sq ft</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 4 -->
-                <div class="project-card" data-category="interiors">
-                    <div class="project-image" style="background-image: url('images/cabin ceiling.jpg');">
-                        <div class="project-category">Interiors</div>
-                    </div>
-                    <div class="project-details">
-                        <h4 class="project-title">Cabin Interior Renovation</h4>
-                        <div class="project-location">
-                            📍 <span>Grand Marais, MI</span>
-                        </div>
-                        <p class="project-description">Complete interior renovation including tongue and groove pine ceiling installation, custom built-ins, and rustic hardwood flooring throughout.</p>
-                        <div class="project-meta">
-                            <div class="meta-item">
-                                <span class="meta-label">Duration</span>
-                                <span class="meta-value">3 Weeks</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Completed</span>
-                                <span class="meta-value">2024</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Size</span>
-                                <span class="meta-value">1,200 sq ft</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 5 -->
+                <!-- Project 1 - Vinyl Log Siding Transformation -->
                 <div class="project-card" data-category="siding">
-                    <div class="project-image" style="background-image: url('images/windows.jpg');">
+                    <div class="project-carousel">
+                        <div class="carousel-images">
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4233.png');">
+                                <span class="image-label label-before">Before</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4248.png');">
+                                <span class="image-label label-before">Before</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4479.png');">
+                                <span class="image-label label-after">After</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4490.png');">
+                                <span class="image-label label-after">After</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4458.png');">
+                                <span class="image-label label-after">After</span>
+                            </div>
+                        </div>
+                        <div class="carousel-arrows">
+                            <button class="carousel-arrow prev">&#8249;</button>
+                            <button class="carousel-arrow next">&#8250;</button>
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="carousel-dot active"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                        </div>
                         <div class="project-category">Siding</div>
                     </div>
                     <div class="project-details">
-                        <h4 class="project-title">Vacation Home Siding Replacement</h4>
-                        <div class="project-location">
-                            📍 <span>Paradise, MI</span>
-                        </div>
-                        <p class="project-description">Complete exterior renovation with LP SmartSide engineered wood siding installation in a custom Mountain Sage color with white trim accents.</p>
-                        <div class="project-meta">
-                            <div class="meta-item">
-                                <span class="meta-label">Duration</span>
-                                <span class="meta-value">2 Weeks</span>
+                        <h4 class="project-title">Complete Exterior Transformation</h4>
+                        <p class="project-description">Transformed the look of this house with new Timbermill vinyl log siding, Versetta stone on the chimney chase, and a new Trex deck.</p>
+                    </div>
+                </div>
+
+                <!-- Project 7 - LP Smart Side and Windows -->
+                <div class="project-card" data-category="siding">
+                    <div class="project-carousel">
+                        <div class="carousel-images">
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_3752.png');">
+                                <span class="image-label label-before">Before</span>
                             </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Completed</span>
-                                <span class="meta-value">2023</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Size</span>
-                                <span class="meta-value">1,600 sq ft</span>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_3883.png');">
+                                <span class="image-label label-after">After</span>
                             </div>
                         </div>
+                        <div class="carousel-arrows">
+                            <button class="carousel-arrow prev">&#8249;</button>
+                            <button class="carousel-arrow next">&#8250;</button>
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="carousel-dot active"></button>
+                            <button class="carousel-dot"></button>
+                        </div>
+                        <div class="project-category">Siding</div>
+                    </div>
+                    <div class="project-details">
+                        <h4 class="project-title">Siding and Window Upgrade</h4>
+                        <p class="project-description">Installed new LP SmartSide siding and Waudena windows for improved energy efficiency and curb appeal.</p>
                     </div>
                 </div>
-            <!-- More Projects Button -->
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="#" class="btn-primary">View More Projects</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Project Gallery -->
-    <section class="section project-gallery" style="background-color: #f8f9fa;">
-        <div class="container">
-            <div class="section-title">
-                <h3>Project Gallery</h3>
-            </div>
-            
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="images/port1.jpg" alt="Project Image" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <div class="gallery-icon">+</div>
+
+                <!-- Project 8 - Metal Roof and Pine Ceiling -->
+                <div class="project-card" data-category="metal-roofing">
+                    <div class="project-carousel">
+                        <div class="carousel-images">
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4288.png');">
+                                <span class="image-label label-before">Before</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4335.png');">
+                                <span class="image-label label-after">After</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4345.png');">
+                                <span class="image-label label-after">After</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4346.png');">
+                                <span class="image-label label-after">After</span>
+                            </div>
+                        </div>
+                        <div class="carousel-arrows">
+                            <button class="carousel-arrow prev">&#8249;</button>
+                            <button class="carousel-arrow next">&#8250;</button>
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="carousel-dot active"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                        </div>
+                        <div class="project-category">Metal Roofing</div>
+                    </div>
+                    <div class="project-details">
+                        <h4 class="project-title">Cabin Roof and Ceiling Renovation</h4>
+                        <p class="project-description">This cabin got a new metal roof, new fiberglass insulation, and a beautiful pine tongue and groove ceiling.</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/port2.jpg" alt="Project Image" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <div class="gallery-icon">+</div>
+
+                <!-- Project 9 - Custom Lakefront Home -->
+                <div class="project-card" data-category="new-construction">
+                    <div class="project-carousel">
+                        <div class="carousel-images">
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5223.png');">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5280.png');">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5287.png');">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5297.png');">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5345.png');">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5376.png');">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5411.png');">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5422.png');">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5449.png');">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5492.png');">
+                                <span class="image-label label-finished">Finished</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5616.png');">
+                                <span class="image-label label-finished">Finished</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5618.png');">
+                                <span class="image-label label-finished">Finished</span>
+                            </div>
+                        </div>
+                        <div class="carousel-arrows">
+                            <button class="carousel-arrow prev">&#8249;</button>
+                            <button class="carousel-arrow next">&#8250;</button>
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="carousel-dot active"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                        </div>
+                        <div class="project-category">New Construction</div>
+                    </div>
+                    <div class="project-details">
+                        <h4 class="project-title">Custom Lakefront Home</h4>
+                        <p class="project-description">We are proud to share one of our latest completed homes. A custom lakefront building featuring a full wrap around porch, stone retaining walls, and clean board-and-batten siding that blends perfectly with its natural surroundings.</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/port3.jpg" alt="Project Image" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <div class="gallery-icon">+</div>
+
+                <!-- Project 10 - 40x36 Garage Build -->
+                <div class="project-card" data-category="new-construction">
+                    <div class="project-carousel">
+                        <div class="carousel-images">
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5527.png');">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5532.png');">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5585.png');">
+                                <span class="image-label label-finished">Finished</span>
+                            </div>
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5587.png');">
+                                <span class="image-label label-finished">Finished</span>
+                            </div>
+                        </div>
+                        <div class="carousel-arrows">
+                            <button class="carousel-arrow prev">&#8249;</button>
+                            <button class="carousel-arrow next">&#8250;</button>
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="carousel-dot active"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                        </div>
+                        <div class="project-category">New Construction</div>
                     </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/port4.jpg" alt="Project Image" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <div class="gallery-icon">+</div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/port5.jpg" alt="Project Image" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <div class="gallery-icon">+</div>
+                    <div class="project-details">
+                        <h4 class="project-title">40x36 Garage Build</h4>
+                        <p class="project-description">New 40x36 garage build. Thanks to B and L Concrete and Hunter Garage Doors for their excellent work on this project.</p>
                     </div>
                 </div>
             </div>
@@ -969,11 +1110,11 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="section" style="background-color: var(--secondary); color: white; text-align: center;">
+    <section class="section" style="background-color: var(--primary); color: white; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
         <div class="container">
             <h3 style="font-size: 36px; margin-bottom: 20px;">Ready to Start Your Project?</h3>
-            <p style="max-width: 700px; margin: 0 auto 30px;">Contact us today for a free consultation and quote on your next construction or renovation project.</p>
-            <a href="index.html#contact" class="btn-primary" style="background-color: var(--primary); color: white;">Request a Quote</a>
+            <p style="max-width: 700px; margin: 0 auto 30px; color: rgba(255,255,255,0.9);">Contact us today for a free consultation and quote on your next construction or renovation project.</p>
+            <a href="index.html#contact" class="btn-primary" style="background-color: white; color: var(--primary);">Request a Quote</a>
         </div>
     </section>
 
@@ -1051,28 +1192,44 @@
                 });
             }
             
-            // Project filtering
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
-            
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // Get filter value
-                    const filterValue = this.getAttribute('data-filter');
-                    
-                    // Filter projects
-                    projectCards.forEach(card => {
-                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
+            // Carousel functionality
+            const carousels = document.querySelectorAll('.project-carousel');
+
+            carousels.forEach(carousel => {
+                const imagesContainer = carousel.querySelector('.carousel-images');
+                const images = carousel.querySelectorAll('.carousel-image');
+                const dots = carousel.querySelectorAll('.carousel-dot');
+                const prevBtn = carousel.querySelector('.carousel-arrow.prev');
+                const nextBtn = carousel.querySelector('.carousel-arrow.next');
+                let currentIndex = 0;
+
+                function updateCarousel() {
+                    imagesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentIndex);
+                    });
+                }
+
+                // Arrow navigation
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex - 1 + images.length) % images.length;
+                        updateCarousel();
+                    });
+                }
+
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex + 1) % images.length;
+                        updateCarousel();
+                    });
+                }
+
+                // Dot navigation
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        currentIndex = index;
+                        updateCarousel();
                     });
                 });
             });

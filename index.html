@@ -616,7 +616,27 @@
             height: 2px;
             background-color: var(--primary);
         }
-        
+
+        .footer .about-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .footer .about-list li {
+            color: rgba(255,255,255,0.7);
+            padding: 5px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .footer .about-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
         .footer-links {
             list-style: none;
         }
@@ -685,11 +705,11 @@
             .mobile-toggle {
                 display: block;
             }
-            
+
             .navbar {
                 padding: 15px 0;
             }
-            
+
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -704,17 +724,17 @@
                 box-shadow: 0 4px 20px rgba(0,0,0,0.1);
                 z-index: 999;
             }
-            
+
             .nav-links.active {
                 left: 0;
             }
-            
+
             .nav-links li {
                 margin: 20px 0;
                 width: 100%;
                 text-align: center;
             }
-            
+
             .nav-links a {
                 display: block;
                 padding: 15px 20px;
@@ -722,12 +742,12 @@
                 border-radius: 8px;
                 transition: all 0.3s;
             }
-            
+
             .nav-links a:hover {
                 background-color: rgba(28, 70, 140, 0.1);
                 color: var(--primary);
             }
-            
+
             .nav-links .btn {
                 background-color: var(--primary);
                 color: white;
@@ -735,141 +755,254 @@
                 font-size: 16px;
                 padding: 12px 30px;
             }
-            
+
             .hero {
                 padding: 60px 0;
             }
-            
+
+            .hero-content {
+                max-width: 100%;
+            }
+
             .hero h2 {
                 font-size: 32px;
                 line-height: 1.2;
             }
-            
+
             .hero p {
                 font-size: 16px;
                 margin-bottom: 25px;
             }
-            
+
             .logo img {
                 height: 50px;
                 width: 50px;
             }
-            
+
             .logo h1 {
                 font-size: 24px;
             }
-            
-            
+
             .services {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            
+
             .service-card {
-                margin-bottom: 20px;
+                margin-bottom: 0;
             }
-            
+
+            .service-content .btn-primary {
+                display: block;
+                text-align: center;
+                padding: 14px 20px;
+            }
+
+            .about {
+                text-align: center;
+            }
+
+            .about-badge {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                display: inline-block;
+                margin-top: 15px;
+            }
+
+            .about-list {
+                text-align: left;
+                max-width: 300px;
+                margin: 0 auto 30px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                height: 200px;
+            }
+
             .testimonial-grid {
                 grid-template-columns: 1fr;
                 gap: 25px;
             }
-            
+
             .testimonial-card {
                 padding: 25px 20px;
             }
-            
+
+            .testimonial-content p {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
             .contact-info {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            
+
             .contact-form {
                 padding: 20px;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .footer-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-social {
+                justify-content: center;
             }
         }
         
         @media (max-width: 480px) {
             .container {
-                padding: 0 10px;
+                padding: 0 15px;
             }
-            
+
             .navbar {
                 padding: 10px 0;
             }
-            
+
             .logo img {
-                height: 45px;
-                width: 45px;
-                margin-right: 12px;
+                height: 40px;
+                width: 40px;
+                margin-right: 10px;
             }
-            
+
             .logo h1 {
-                font-size: 20px;
+                font-size: 18px;
             }
-            
-            
+
             .hero {
                 padding: 40px 0;
             }
-            
+
             .hero h2 {
-                font-size: 28px;
+                font-size: 24px;
                 margin-bottom: 15px;
             }
-            
+
             .hero p {
-                font-size: 15px;
+                font-size: 14px;
                 margin-bottom: 20px;
             }
-            
+
             .btn-primary {
-                padding: 10px 25px;
+                padding: 12px 24px;
                 font-size: 14px;
+                width: 100%;
+                text-align: center;
             }
-            
+
             .section {
-                padding: 50px 0;
+                padding: 40px 0;
             }
-            
+
+            .section-title {
+                margin-bottom: 30px;
+            }
+
             .section-title h3 {
-                font-size: 28px;
+                font-size: 24px;
             }
-            
+
+            .service-img {
+                height: 180px;
+            }
+
             .service-content {
                 padding: 15px;
             }
-            
+
             .service-content h4 {
-                font-size: 20px;
+                font-size: 18px;
             }
-            
+
+            .service-content p {
+                font-size: 14px;
+            }
+
+            .about-content h3 {
+                font-size: 24px;
+            }
+
+            .about-content p {
+                font-size: 14px;
+            }
+
+            .about-list {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+
+            .about-list li {
+                font-size: 14px;
+            }
+
             .testimonial-card {
                 padding: 20px 15px;
             }
-            
-            .testimonial-avatar {
-                width: 50px;
-                height: 50px;
-                font-size: 18px;
+
+            .testimonial-card::before {
+                font-size: 60px;
             }
-            
+
+            .testimonial-avatar {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+                margin-right: 12px;
+            }
+
+            .testimonial-info h4 {
+                font-size: 16px;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
             .contact-form {
                 padding: 15px;
             }
-            
+
             .form-control {
-                padding: 10px 12px;
-                font-size: 14px;
+                padding: 12px;
+                font-size: 16px;
             }
-            
+
             .footer-logo img {
                 height: 50px;
                 width: 50px;
             }
-            
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
+                text-align: center;
+            }
+
+            .footer .about-list {
+                text-align: left;
+                max-width: 280px;
+                margin: 0 auto 20px;
+            }
+
+            .contact-info {
                 text-align: center;
             }
         }
