@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RR Construction - Past Projects</title>
+
+    <!-- SEO Meta Tags -->
+    <title>Portfolio - Upper Peninsula Home Builder Projects | RR Construction</title>
+    <meta name="description" content="View completed home construction projects across Michigan's Upper Peninsula. Browse our portfolio of roofing, siding, new construction, and remodeling work in Curtis, Newberry & Manistique.">
+    <meta name="keywords" content="UP construction portfolio, Curtis MI home builder projects, Upper Peninsula remodeling examples, Michigan UP home construction, before after home renovation UP">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portfolio - Upper Peninsula Home Builder Projects | RR Construction">
+    <meta property="og:description" content="View completed home construction projects across Michigan's Upper Peninsula including roofing, siding, and new construction.">
+    <meta property="og:url" content="https://rrconstructionup.com/portfolio.html">
+    <meta property="og:image" content="https://rrconstructionup.com/images/portfolio/IMG_5492.jpg">
+
+    <title>Portfolio - Upper Peninsula Home Builder Projects | RR Construction</title>
     <style>
         :root {
             --primary: #1C468c;
@@ -130,7 +143,7 @@
         
         /* Section Styles */
         .section {
-            padding: 30px 0;
+            padding: 80px 0;
         }
         
         .section-title {
@@ -156,6 +169,10 @@
             width: 70px;
             height: 3px;
             background-color: var(--primary);
+        }
+
+        .section-title p {
+            margin-top: 20px;
         }
         
         /* Projects Grid */
@@ -724,8 +741,16 @@
                 font-size: 24px;
             }
 
+            .section {
+                padding: 60px 0;
+            }
+
+            .project-gallery {
+                padding-top: 80px !important;
+            }
+
             .section-title {
-                margin-bottom: 30px;
+                margin-bottom: 40px;
             }
 
             .footer-content {
@@ -776,7 +801,15 @@
             }
 
             .section {
-                padding: 30px 0;
+                padding: 50px 0;
+            }
+
+            .project-gallery {
+                padding-top: 60px !important;
+            }
+
+            .section-title {
+                margin-bottom: 40px;
             }
 
             .section-title h3 {
@@ -867,6 +900,18 @@
                 font-size: 12px;
                 padding: 15px 0;
             }
+
+            .cta-section {
+                padding: 50px 0 !important;
+            }
+
+            .cta-section h3 {
+                font-size: 24px !important;
+            }
+
+            .cta-section p {
+                font-size: 14px !important;
+            }
         }
     </style>
 </head>
@@ -894,7 +939,7 @@
     </header>
 
     <!-- Projects Section -->
-    <section class="section project-gallery" style="background-color: var(--secondary);">
+    <section class="section project-gallery" style="background-color: var(--secondary); padding-top: 100px;">
         <div class="container">
             <div class="section-title">
                 <h3 style="color: white;">Project Gallery</h3>
@@ -907,19 +952,19 @@
                 <div class="project-card" data-category="siding">
                     <div class="project-carousel">
                         <div class="carousel-images">
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4233.png');">
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4233.jpg');" data-loaded="true">
                                 <span class="image-label label-before">Before</span>
                             </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4248.png');">
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_port5_optimized.jpg">
+                                <span class="image-label label-after">After</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_4248.jpg">
                                 <span class="image-label label-before">Before</span>
                             </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4479.png');">
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_4479.jpg">
                                 <span class="image-label label-after">After</span>
                             </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4490.png');">
-                                <span class="image-label label-after">After</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4458.png');">
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_4490.jpg">
                                 <span class="image-label label-after">After</span>
                             </div>
                         </div>
@@ -942,107 +987,45 @@
                     </div>
                 </div>
 
-                <!-- Project 7 - LP Smart Side and Windows -->
-                <div class="project-card" data-category="siding">
-                    <div class="project-carousel">
-                        <div class="carousel-images">
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_3752.png');">
-                                <span class="image-label label-before">Before</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_3883.png');">
-                                <span class="image-label label-after">After</span>
-                            </div>
-                        </div>
-                        <div class="carousel-arrows">
-                            <button class="carousel-arrow prev">&#8249;</button>
-                            <button class="carousel-arrow next">&#8250;</button>
-                        </div>
-                        <div class="carousel-nav">
-                            <button class="carousel-dot active"></button>
-                            <button class="carousel-dot"></button>
-                        </div>
-                        <div class="project-category">Siding</div>
-                    </div>
-                    <div class="project-details">
-                        <h4 class="project-title">Siding and Window Upgrade</h4>
-                        <p class="project-description">Installed new LP SmartSide siding and Waudena windows for improved energy efficiency and curb appeal.</p>
-                    </div>
-                </div>
-
-                <!-- Project 8 - Metal Roof and Pine Ceiling -->
-                <div class="project-card" data-category="metal-roofing">
-                    <div class="project-carousel">
-                        <div class="carousel-images">
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4288.png');">
-                                <span class="image-label label-before">Before</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4335.png');">
-                                <span class="image-label label-after">After</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4345.png');">
-                                <span class="image-label label-after">After</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4346.png');">
-                                <span class="image-label label-after">After</span>
-                            </div>
-                        </div>
-                        <div class="carousel-arrows">
-                            <button class="carousel-arrow prev">&#8249;</button>
-                            <button class="carousel-arrow next">&#8250;</button>
-                        </div>
-                        <div class="carousel-nav">
-                            <button class="carousel-dot active"></button>
-                            <button class="carousel-dot"></button>
-                            <button class="carousel-dot"></button>
-                            <button class="carousel-dot"></button>
-                        </div>
-                        <div class="project-category">Metal Roofing</div>
-                    </div>
-                    <div class="project-details">
-                        <h4 class="project-title">Cabin Roof and Ceiling Renovation</h4>
-                        <p class="project-description">This cabin got a new metal roof, new fiberglass insulation, and a beautiful pine tongue and groove ceiling.</p>
-                    </div>
-                </div>
-
-                <!-- Project 9 - Custom Lakefront Home -->
+                <!-- Project 2 - Custom Lakefront Home -->
                 <div class="project-card" data-category="new-construction">
                     <div class="project-carousel">
                         <div class="carousel-images">
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5223.png');">
-                                <span class="image-label label-progress">Progress</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5280.png');">
-                                <span class="image-label label-progress">Progress</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5287.png');">
-                                <span class="image-label label-progress">Progress</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5297.png');">
-                                <span class="image-label label-progress">Progress</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5345.png');">
-                                <span class="image-label label-progress">Progress</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5376.png');">
-                                <span class="image-label label-progress">Progress</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5411.png');">
-                                <span class="image-label label-progress">Progress</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5422.png');">
-                                <span class="image-label label-progress">Progress</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5449.png');">
-                                <span class="image-label label-progress">Progress</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5492.png');">
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5618.jpg');" data-loaded="true">
                                 <span class="image-label label-finished">Finished</span>
                             </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5616.png');">
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5616.jpg">
                                 <span class="image-label label-finished">Finished</span>
                             </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5618.png');">
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5492.jpg">
                                 <span class="image-label label-finished">Finished</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5223.jpg">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5280.jpg">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5287.jpg">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5297.jpg">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5345.jpg">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5376.jpg">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5411.jpg">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5422.jpg">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5449.jpg">
+                                <span class="image-label label-progress">Progress</span>
                             </div>
                         </div>
                         <div class="carousel-arrows">
@@ -1071,21 +1054,21 @@
                     </div>
                 </div>
 
-                <!-- Project 10 - 40x36 Garage Build -->
+                <!-- Project 3 - 40x36 Garage Build -->
                 <div class="project-card" data-category="new-construction">
                     <div class="project-carousel">
                         <div class="carousel-images">
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5527.png');">
-                                <span class="image-label label-progress">Progress</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5532.png');">
-                                <span class="image-label label-progress">Progress</span>
-                            </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5585.png');">
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5587.jpg');" data-loaded="true">
                                 <span class="image-label label-finished">Finished</span>
                             </div>
-                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_5587.png');">
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5585.jpg">
                                 <span class="image-label label-finished">Finished</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5527.jpg">
+                                <span class="image-label label-progress">Progress</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_5532.jpg">
+                                <span class="image-label label-progress">Progress</span>
                             </div>
                         </div>
                         <div class="carousel-arrows">
@@ -1105,73 +1088,86 @@
                         <p class="project-description">New 40x36 garage build. Thanks to B and L Concrete and Hunter Garage Doors for their excellent work on this project.</p>
                     </div>
                 </div>
+
+                <!-- Project 4 - LP Smart Side and Windows -->
+                <div class="project-card" data-category="siding">
+                    <div class="project-carousel">
+                        <div class="carousel-images">
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_3752.jpg');" data-loaded="true">
+                                <span class="image-label label-before">Before</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_3883.jpg">
+                                <span class="image-label label-after">After</span>
+                            </div>
+                        </div>
+                        <div class="carousel-arrows">
+                            <button class="carousel-arrow prev">&#8249;</button>
+                            <button class="carousel-arrow next">&#8250;</button>
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="carousel-dot active"></button>
+                            <button class="carousel-dot"></button>
+                        </div>
+                        <div class="project-category">Siding</div>
+                    </div>
+                    <div class="project-details">
+                        <h4 class="project-title">Siding and Window Upgrade</h4>
+                        <p class="project-description">Installed new LP SmartSide siding and Waudena windows for improved energy efficiency and curb appeal.</p>
+                    </div>
+                </div>
+
+                <!-- Project 5 - Metal Roof and Pine Ceiling -->
+                <div class="project-card" data-category="metal-roofing">
+                    <div class="project-carousel">
+                        <div class="carousel-images">
+                            <div class="carousel-image" style="background-image: url('images/portfolio/IMG_4288.jpg');" data-loaded="true">
+                                <span class="image-label label-before">Before</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_4335.jpg">
+                                <span class="image-label label-after">After</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_4345.jpg">
+                                <span class="image-label label-after">After</span>
+                            </div>
+                            <div class="carousel-image" data-bg="images/portfolio/IMG_4346.jpg">
+                                <span class="image-label label-after">After</span>
+                            </div>
+                        </div>
+                        <div class="carousel-arrows">
+                            <button class="carousel-arrow prev">&#8249;</button>
+                            <button class="carousel-arrow next">&#8250;</button>
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="carousel-dot active"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                            <button class="carousel-dot"></button>
+                        </div>
+                        <div class="project-category">Metal Roofing</div>
+                    </div>
+                    <div class="project-details">
+                        <h4 class="project-title">Cabin Roof and Ceiling Renovation</h4>
+                        <p class="project-description">This cabin got a new metal roof, new fiberglass insulation, and a beautiful pine tongue and groove ceiling.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Call to Action -->
-    <section class="section" style="background-color: var(--primary); color: white; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
+    <section class="cta-section" style="background-color: var(--secondary); color: white; text-align: center; padding: 80px 0;">
         <div class="container">
             <h3 style="font-size: 36px; margin-bottom: 20px;">Ready to Start Your Project?</h3>
             <p style="max-width: 700px; margin: 0 auto 30px; color: rgba(255,255,255,0.9);">Contact us today for a free consultation and quote on your next construction or renovation project.</p>
-            <a href="index.html#contact" class="btn-primary" style="background-color: white; color: var(--primary);">Request a Quote</a>
+            <a href="index.html#contact" class="btn-primary" style="background-color: var(--primary); color: white;">Request a Quote</a>
         </div>
     </section>
 
-    <!-- Footer -->
-<section id="footer" class="footer">
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="footer-logo">
-                        <img src="images/RR-CONSTRUCTION-JPEG-File--2.0.jpg" alt="RR Construction Logo">
-                    </div>
-                    <ul class="about-list">
-                        <li>Licensed and fully insured company</li>
-                        <li>Certainteed ShingleMaster certified</li>
-                        <li>Experienced in all aspects of residential construction</li>
-                        <li>Serving the central UP area</li>
-                        <li>Quality materials and professional installation</li>
-                    </ul>
-                    <div class="footer-social">
-                        <a href="https://www.facebook.com/profile.php?id=61565725851595" class="social-link">f</a>
-                        <a href="#" class="social-link">📷</a>
-                    </div>
-                </div>
-                <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-details">
-                        <h5>Our Location</h5>
-                        <p>Newberry, Michigan, Upper Peninsula</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">✉️</div>
-                    <div class="contact-details">
-                        <h5>Email Us</h5>
-                        <a href="mailto:info@rrconstruction.com">info@rrconstruction.com</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📱</div>
-                    <div class="contact-details">
-                        <h5>Call Us</h5>
-                        <a href="tel:+19062860416">(906) 286-0416</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <div class="container">
-                &copy; 2025 RR Construction. All Rights Reserved.
-            </div>
-          </div>
-    </footer>
-</section>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
+    <script src="js/footer.js"></script>
     <script>
         // Mobile navigation toggle
         document.addEventListener('DOMContentLoaded', function() {
@@ -1232,6 +1228,44 @@
                         updateCarousel();
                     });
                 });
+            });
+
+            // Lazy loading for carousel images
+            const lazyLoadImages = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const card = entry.target;
+                        const lazyImages = card.querySelectorAll('.carousel-image[data-bg]:not([data-loaded])');
+
+                        lazyImages.forEach(img => {
+                            const bgUrl = img.getAttribute('data-bg');
+                            if (bgUrl) {
+                                // Preload the image
+                                const tempImg = new Image();
+                                tempImg.onload = () => {
+                                    img.style.backgroundImage = `url('${bgUrl}')`;
+                                    img.setAttribute('data-loaded', 'true');
+                                };
+                                tempImg.src = bgUrl;
+                            }
+                        });
+
+                        // Stop observing this card once images are loaded
+                        observer.unobserve(card);
+                    }
+                });
+            };
+
+            // Create intersection observer for lazy loading
+            const imageObserver = new IntersectionObserver(lazyLoadImages, {
+                root: null,
+                rootMargin: '50px', // Start loading 50px before card enters viewport
+                threshold: 0.1
+            });
+
+            // Observe all project cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                imageObserver.observe(card);
             });
         });
     </script>
