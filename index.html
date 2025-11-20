@@ -1142,22 +1142,24 @@
                 <h3>Request a Quote</h3>
             </div>
             <div class="contact-form">
-                <form>
+                <form action="https://formspree.io/f/mqaqebwo" method="POST">
+                    <input type="hidden" name="_next" value="https://rrconstructionup.com/index.html">
+                    <input type="hidden" name="_subject" value="New Quote Request from Website">
                     <div class="form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" id="name" class="form-control" required>
+                        <input type="text" id="name" name="name" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Your Email</label>
-                        <input type="email" id="email" class="form-control" required>
+                        <input type="email" id="email" name="email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" class="form-control">
+                        <input type="tel" id="phone" name="phone" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="service">Service Needed</label>
-                        <select id="service" class="form-control">
+                        <select id="service" name="service" class="form-control">
                             <option value="" selected disabled>Select a service</option>
                             <option value="roofing">Roofing</option>
                             <option value="siding">Siding Installation</option>
@@ -1170,7 +1172,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Your Message</label>
-                        <textarea id="message" class="form-control" required></textarea>
+                        <textarea id="message" name="message" class="form-control" required></textarea>
                     </div>
                     <button type="submit" class="btn-primary">Submit Request</button>
                 </form>
