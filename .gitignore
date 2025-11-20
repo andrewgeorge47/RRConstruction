@@ -1,0 +1,38 @@
+# Invoice files
+invoice*.html
+invoice*.txt
+invoice*.pdf
+*_invoice.*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Node modules
+node_modules/
+package-lock.json
+generate-invoice-pdf.js
+
+# Environment files
+.env
+.env.local
+
+# Image backups
+images/originals/

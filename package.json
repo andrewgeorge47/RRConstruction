@@ -1,0 +1,18 @@
+{
+  "name": "rr-construction-invoice",
+  "version": "1.0.0",
+  "description": "Invoice PDF generator for RR Construction",
+  "main": "generate-invoice-pdf.js",
+  "scripts": {
+    "generate-pdf": "node generate-invoice-pdf.js"
+  },
+  "keywords": [
+    "invoice",
+    "pdf"
+  ],
+  "author": "Weeno Ridge LLC",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.31.0"
+  }
+}
