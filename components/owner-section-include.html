@@ -1,0 +1,139 @@
+<!-- Owner Section Component - Include Version -->
+<!-- Instructions: Copy this entire file into your index.html where you want the owner section to appear -->
+
+<style>
+    /* Owner Section Styles */
+    .owner-section {
+        background-color: white;
+        padding: 80px 0;
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .owner-content {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .owner-image {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 8px solid #ff6606;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+
+    .owner-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .owner-placeholder {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #1C468c, #2557b8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 80px;
+        font-weight: 700;
+    }
+
+    .owner-text h3 {
+        font-size: 36px;
+        font-weight: 700;
+        color: #2c2c2c;
+        margin-bottom: 10px;
+    }
+
+    .owner-text .title {
+        font-size: 18px;
+        color: #ff6606;
+        font-weight: 600;
+        margin-bottom: 25px;
+        display: block;
+    }
+
+    .owner-text p {
+        font-size: 17px;
+        line-height: 1.8;
+        color: #555555;
+        margin-bottom: 20px;
+    }
+
+    .owner-signature {
+        font-family: 'Brush Script MT', cursive;
+        font-size: 36px;
+        color: #1C468c;
+        margin-top: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .owner-section {
+            padding: 60px 0;
+        }
+
+        .owner-content {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .owner-image {
+            margin: 0 auto;
+        }
+
+        .owner-text h3 {
+            font-size: 28px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .owner-image {
+            width: 250px;
+            height: 250px;
+        }
+
+        .owner-placeholder {
+            font-size: 60px;
+        }
+
+        .owner-text h3 {
+            font-size: 24px;
+        }
+
+        .owner-text p {
+            font-size: 15px;
+        }
+
+        .owner-signature {
+            font-size: 28px;
+        }
+    }
+</style>
+
+<section class="owner-section">
+    <div class="container">
+        <div class="owner-content">
+            <div class="owner-image">
+                <div class="owner-placeholder">TS</div>
+                <!-- Replace with actual photo: <img src="images/owner.jpg" alt="Troy Streeter"> -->
+            </div>
+            <div class="owner-text">
+                <h3>Troy Streeter</h3>
+                <span class="title">Owner & General Contractor</span>
+                <p>With over a decade of combined experience in residential construction, I founded RR Construction with a simple philosophy: we don't just build houses, we build relationships.</p>
+                <p>Every project we take on is a partnership. From your first call to the final walkthrough and beyond, you'll work directly with me and my trusted crew. That's how we've earned repeat clients who call us not just for their next project, but just to share a laugh.</p>
+                <p><strong>My guarantee to you:</strong> Professional craftsmanship, honest communication, and a finished project you'll be proud of for years to come.</p>
+                <div class="owner-signature">- Troy</div>
+            </div>
+        </div>
+    </div>
+</section>
